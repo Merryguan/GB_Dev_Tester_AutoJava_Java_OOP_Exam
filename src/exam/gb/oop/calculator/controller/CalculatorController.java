@@ -10,14 +10,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Controller<T extends CalculatorOperations> {
+public class CalculatorController<T extends CalculatorOperations> {
 
     private View view;
     private final T service;
 
     private final List<String> history;
 
-    public Controller(T model) {
+    public CalculatorController(T model) {
         this.service = model;
         this.history = new ArrayList<>();
     }

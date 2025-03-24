@@ -1,20 +1,20 @@
 package exam.gb.oop.calculator.view;
 
-import exam.gb.oop.calculator.controller.Controller;
+import exam.gb.oop.calculator.controller.CalculatorController;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleUI implements View {
 
-    private Controller controller;
+    private CalculatorController calculatorController;
     private Scanner scanner;
     private MainMenu mainMenu;
     private boolean work;
 
-    public ConsoleUI(Controller controller) {
+    public ConsoleUI(CalculatorController calculatorController) {
 
-        this.controller = controller;
+        this.calculatorController = calculatorController;
         scanner = new Scanner(System.in);
         mainMenu = new MainMenu(this);
         work = true;
@@ -55,7 +55,7 @@ public class ConsoleUI implements View {
         int real2 = scanner.nextInt();
         System.out.println("Введите мнимую часть второго числа: ");
         int imagine2 = scanner.nextInt();
-        List<String> result = controller.addition(real1, imagine1, real2, imagine2);
+        List<String> result = calculatorController.addition(real1, imagine1, real2, imagine2);
         printResult(String.format("Ответ: %s\n", result.getLast()));
         StringBuilder sb = new StringBuilder();
         for (String item : result) {
@@ -75,7 +75,7 @@ public class ConsoleUI implements View {
         int real2 = scanner.nextInt();
         System.out.println("Введите мнимую часть второго числа: ");
         int imagine2 = scanner.nextInt();
-        List<String> result = controller.subtraction(real1, imagine1, real2, imagine2);
+        List<String> result = calculatorController.subtraction(real1, imagine1, real2, imagine2);
         printResult(String.format("Ответ: %s\n", result.getLast()));
         StringBuilder sb = new StringBuilder();
         for (String item : result) {
@@ -95,7 +95,7 @@ public class ConsoleUI implements View {
         int real2 = scanner.nextInt();
         System.out.println("Введите мнимую часть второго числа: ");
         int imagine2 = scanner.nextInt();
-        List<String> result = controller.multiplication(real1, imagine1, real2, imagine2);
+        List<String> result = calculatorController.multiplication(real1, imagine1, real2, imagine2);
         printResult(String.format("Ответ: %s\n", result.getLast()));
         StringBuilder sb = new StringBuilder();
         for (String item : result) {
@@ -115,7 +115,7 @@ public class ConsoleUI implements View {
         int real2 = scanner.nextInt();
         System.out.println("Введите мнимую часть второго числа: ");
         int imagine2 = scanner.nextInt();
-        List<String> result = controller.division(real1, imagine1, real2, imagine2);
+        List<String> result = calculatorController.division(real1, imagine1, real2, imagine2);
         printResult(String.format("Ответ: %s\n", result.getLast()));
         StringBuilder sb = new StringBuilder();
         for (String item : result) {
@@ -127,7 +127,7 @@ public class ConsoleUI implements View {
 
     public void revert() {
 
-        List<String> result = controller.revert();
+        List<String> result = calculatorController.revert();
         printResult(String.format("Действие %s отменено.\n", result.getLast()));
         StringBuilder sb = new StringBuilder();
         for (String item : result) {
